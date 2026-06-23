@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    scroll-behavior: smooth;
+  }
+
+  /* Hide scrollbars site-wide (scrolling still works) */
+  html {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE / old Edge */
+  }
+
+  *::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Edge */
+  }
+
+  body {
+    @apply bg-cream font-sans text-ink antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display font-bold tracking-tight text-ink;
+  }
+
+  ::selection {
+    @apply bg-brand-600 text-white;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-content px-5 sm:px-6 lg:px-8;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-md px-6 py-3 text-sm font-semibold
+      transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-600
+      focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  .btn-primary {
+    @apply btn bg-brand-600 text-white hover:bg-brand-700;
+  }
+
+  .btn-secondary {
+    @apply btn border-2 border-brand-600 bg-transparent text-brand-700 hover:bg-brand-600 hover:text-white;
+  }
+
+  .btn-ghost {
+    @apply btn bg-white text-ink ring-1 ring-black/10 hover:bg-brand-50;
+  }
+
+  .btn-gold {
+    @apply btn bg-gold-500 text-ink hover:bg-gold-600;
+  }
+
+  .eyebrow {
+    @apply inline-block text-xs font-bold uppercase tracking-[0.18em] text-brand-600;
+  }
+
+  .card {
+    @apply rounded-md bg-white shadow-card ring-1 ring-black/5;
+  }
+}
