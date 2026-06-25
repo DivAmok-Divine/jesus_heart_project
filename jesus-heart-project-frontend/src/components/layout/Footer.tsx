@@ -114,14 +114,16 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-ink/10 py-6">
-        <div className="container-page flex flex-col items-center justify-between gap-2 text-xs text-ink-muted sm:flex-row">
-          <p>
-            © {new Date().getFullYear()} {ORG.name}. All rights reserved.
-          </p>
-          <p>
-            Designed by <span className="font-semibold text-brand-600">DivAmok Corp.</span>
-          </p>
+      <div className="border-t border-ink/10 py-3.5">
+        <div className="container-page flex flex-col items-center justify-between gap-3 text-xs text-ink-muted sm:flex-row">
+          <div className="text-center sm:text-left">
+            <p>
+              © {new Date().getFullYear()} {ORG.name}. All rights reserved.
+            </p>
+            <p className="mt-1">
+              Designed by <span className="font-semibold text-brand-600">DivAmok Corp.</span>
+            </p>
+          </div>
           <p>
             {ORG.tagline} · {ORG.city}
           </p>

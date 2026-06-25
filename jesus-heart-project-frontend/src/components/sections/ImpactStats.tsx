@@ -35,7 +35,7 @@ export default function ImpactStats() {
   return (
     <section className="relative z-10 -mt-20 sm:-mt-24">
       <div className="container-page">
-        <div className="grid grid-cols-2 gap-px overflow-hidden rounded-md bg-sand shadow-lift ring-1 ring-ink/[0.06] lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
           {impactStats.map((stat, i) => (
             <motion.div
               key={stat.label}
@@ -43,16 +43,24 @@ export default function ImpactStats() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.08 }}
-              className="group flex flex-col items-center bg-white p-6 text-center sm:p-8"
+              className="relative flex flex-col items-center overflow-hidden rounded-md bg-white p-6 text-center shadow-card ring-1 ring-ink/[0.06] sm:p-8"
             >
-              <span className="flex h-11 w-11 items-center justify-center rounded-md bg-brand-50 text-brand-600 transition-colors group-hover:bg-brand-600 group-hover:text-white">
-                <Icon name={stat.icon} className="h-5 w-5" />
+              {/* Oversized, tilted icon bleeding off the right edge as a soft brand watermark */}
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute right-[20px] top-[calc(50%-20px)] -translate-y-1/2 -rotate-[14deg] text-brand-600 opacity-[0.12]"
+              >
+                <Icon name={stat.icon} className="h-24 w-24 sm:h-32 sm:w-32" />
               </span>
-              <div className="mt-4 font-display text-4xl font-semibold leading-none text-ink sm:text-[2.75rem]">
+
+              {/* Invisible spacer keeps the exact height/position the old icon tile occupied */}
+              <span aria-hidden="true" className="h-11 w-11" />
+
+              <div className="relative z-10 mt-4 font-display text-4xl font-semibold leading-none text-ink sm:text-[2.75rem]">
                 <Counter value={stat.value} suffix={stat.suffix} />
               </div>
-              <div className="mx-auto mt-2 h-0.5 w-6 rounded-md bg-gold-500" />
-              <div className="mt-3 text-sm font-medium text-ink-soft sm:text-base">
+              <div className="relative z-10 mx-auto mt-2 h-0.5 w-6 rounded-md bg-gold-500" />
+              <div className="relative z-10 mt-3 text-sm font-medium text-ink-soft sm:text-base">
                 {stat.label}
               </div>
             </motion.div>

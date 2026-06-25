@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Mail, Phone, MapPin, MessageCircle, Send, Loader2, CheckCircle2 } from 'lucide-react';
+import { Mail, Phone, MapPin, MessageCircle, Send, Loader2, CheckCircle2, Navigation, ExternalLink } from 'lucide-react';
 import SEO from '@/components/SEO';
 import PageHeader from '@/components/ui/PageHeader';
 import Section from '@/components/ui/Section';
@@ -144,16 +144,6 @@ export default function Contact() {
                 </div>
               </li>
             </ul>
-
-            <div className="mt-8 overflow-hidden rounded-md shadow-card">
-              <iframe
-                title="Tamale, Ghana map"
-                src="https://www.google.com/maps?q=Tamale,Northern+Region,Ghana&output=embed"
-                className="h-64 w-full border-0"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            </div>
           </Reveal>
 
           {/* Form */}
@@ -235,6 +225,42 @@ export default function Contact() {
             </div>
           </Reveal>
         </div>
+
+        {/* Full-width map — fills the space across the bottom of the section */}
+        <Reveal className="mt-10">
+          <div className="relative h-[24rem] w-full overflow-hidden rounded-md shadow-card sm:h-[30rem]">
+            <iframe
+              title="Tamale, Ghana map"
+              src="https://maps.google.com/maps?ll=9.4035,-0.8424&z=13&output=embed"
+              className="h-full w-full border-0"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+
+            {/* Place name card — top-left, sits over Google's default "View larger map" label */}
+            <div className="absolute left-2 top-2 flex items-center gap-2 rounded-md bg-white py-2 pl-3.5 pr-2 shadow-lift">
+              <span className="text-sm font-semibold text-ink">Tamale, Northern Region, Ghana</span>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Tamale%2C+Northern+Region%2C+Ghana"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open in Google Maps"
+                className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-brand-50 text-brand-600 transition-colors hover:bg-brand-600 hover:text-white"
+              >
+                <ExternalLink className="h-4 w-4" />
+              </a>
+            </div>
+            {/* Directions — top-right */}
+            <a
+              href="https://www.google.com/maps/dir/?api=1&destination=Tamale%2C+Northern+Region%2C+Ghana"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary absolute right-3 top-3 shadow-lift"
+            >
+              <Navigation className="h-4 w-4" /> Direct me
+            </a>
+          </div>
+        </Reveal>
       </Section>
     </>
   );

@@ -146,15 +146,23 @@ export default function GetInvolved() {
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {ways.map((w, i) => (
             <Reveal key={w.title} delay={(i % 4) * 0.08}>
-              <div className="card flex h-full flex-col p-6">
-                <div className="flex h-11 w-11 items-center justify-center rounded-md bg-brand-50 text-brand-600">
-                  <w.icon className="h-5 w-5" />
-                </div>
-                <h3 className="mt-4 text-lg font-bold">{w.title}</h3>
-                <p className="mt-2 flex-1 text-sm text-ink-soft">{w.text}</p>
+              <div className="card relative flex h-full flex-col overflow-hidden p-6">
+                {/* Oversized, tilted icon bleeding off the right edge as a soft brand watermark */}
+                <span
+                  aria-hidden="true"
+                  className="pointer-events-none absolute right-[20px] top-[calc(50%-20px)] -translate-y-1/2 -rotate-[14deg] text-brand-600 opacity-[0.12]"
+                >
+                  <w.icon className="h-16 w-16 sm:h-24 sm:w-24" />
+                </span>
+
+                {/* Invisible spacer keeps the exact height/position the old icon tile occupied */}
+                <div aria-hidden="true" className="h-11 w-11" />
+
+                <h3 className="relative z-10 mt-4 text-lg font-bold">{w.title}</h3>
+                <p className="relative z-10 mt-2 flex-1 text-sm text-ink-soft">{w.text}</p>
                 <button
                   onClick={() => runAction(w.action)}
-                  className="mt-5 inline-flex items-center gap-1.5 self-start text-sm font-semibold text-brand-600 hover:gap-2.5"
+                  className="relative z-10 mt-5 inline-flex items-center gap-1.5 self-start text-sm font-semibold text-brand-600 hover:gap-2.5"
                 >
                   {w.cta} <ArrowRight className="h-4 w-4 transition-all" />
                 </button>
@@ -174,15 +182,23 @@ export default function GetInvolved() {
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {otherWays.map((w, i) => (
             <Reveal key={w.title} delay={(i % 4) * 0.08}>
-              <div className="card flex h-full flex-col p-6">
-                <div className="flex h-11 w-11 items-center justify-center rounded-md bg-brand-50 text-brand-600">
-                  <w.icon className="h-5 w-5" />
-                </div>
-                <h3 className="mt-4 text-lg font-bold">{w.title}</h3>
-                <p className="mt-2 flex-1 text-sm text-ink-soft">{w.body}</p>
+              <div className="card relative flex h-full flex-col overflow-hidden p-6">
+                {/* Oversized, tilted icon bleeding off the right edge as a soft brand watermark */}
+                <span
+                  aria-hidden="true"
+                  className="pointer-events-none absolute right-[20px] top-[calc(50%-20px)] -translate-y-1/2 -rotate-[14deg] text-brand-600 opacity-[0.12]"
+                >
+                  <w.icon className="h-16 w-16 sm:h-24 sm:w-24" />
+                </span>
+
+                {/* Invisible spacer keeps the exact height/position the old icon tile occupied */}
+                <div aria-hidden="true" className="h-11 w-11" />
+
+                <h3 className="relative z-10 mt-4 text-lg font-bold">{w.title}</h3>
+                <p className="relative z-10 mt-2 flex-1 text-sm text-ink-soft">{w.body}</p>
                 <button
                   onClick={() => runAction(w.action)}
-                  className="mt-5 inline-flex items-center gap-1.5 self-start text-sm font-semibold text-brand-600 hover:gap-2.5"
+                  className="relative z-10 mt-5 inline-flex items-center gap-1.5 self-start text-sm font-semibold text-brand-600 hover:gap-2.5"
                 >
                   {w.cta} <ArrowRight className="h-4 w-4 transition-all" />
                 </button>

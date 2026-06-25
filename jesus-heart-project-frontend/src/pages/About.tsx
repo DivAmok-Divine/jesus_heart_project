@@ -68,12 +68,20 @@ export default function About() {
       <Section tone="cream">
         <div className="grid gap-6 lg:grid-cols-2">
           <Reveal>
-            <div className="card h-full p-8">
-              <div className="flex h-12 w-12 items-center justify-center rounded-md bg-brand-50 text-brand-600">
-                <Eye className="h-6 w-6" />
-              </div>
-              <h3 className="mt-4 text-2xl">Our Vision</h3>
-              <p className="mt-3 text-ink-soft">
+            <div className="card relative h-full overflow-hidden p-8">
+              {/* Oversized, tilted icon bleeding off the right edge as a soft brand watermark */}
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute right-[20px] top-[calc(50%-20px)] -translate-y-1/2 -rotate-[14deg] text-brand-600 opacity-[0.12]"
+              >
+                <Eye className="h-20 w-20 sm:h-28 sm:w-28" />
+              </span>
+
+              {/* Invisible spacer keeps the exact height/position the old icon tile occupied */}
+              <div aria-hidden="true" className="h-12 w-12" />
+
+              <h3 className="relative z-10 mt-4 text-2xl">Our Vision</h3>
+              <p className="relative z-10 mt-3 text-ink-soft">
                 To create a world where the transformative power of the gospel of Christ is
                 harnessed to uplift the lives of the poor and needy — fostering a community of
                 compassion, empowerment and holistic well-being.
@@ -81,12 +89,20 @@ export default function About() {
             </div>
           </Reveal>
           <Reveal delay={0.1}>
-            <div className="card h-full p-8">
-              <div className="flex h-12 w-12 items-center justify-center rounded-md bg-brand-50 text-brand-600">
-                <Target className="h-6 w-6" />
-              </div>
-              <h3 className="mt-4 text-2xl">Our Mission</h3>
-              <p className="mt-3 text-ink-soft">
+            <div className="card relative h-full overflow-hidden p-8">
+              {/* Oversized, tilted icon bleeding off the right edge as a soft brand watermark */}
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute right-[20px] top-[calc(50%-20px)] -translate-y-1/2 -rotate-[14deg] text-brand-600 opacity-[0.12]"
+              >
+                <Target className="h-20 w-20 sm:h-28 sm:w-28" />
+              </span>
+
+              {/* Invisible spacer keeps the exact height/position the old icon tile occupied */}
+              <div aria-hidden="true" className="h-12 w-12" />
+
+              <h3 className="relative z-10 mt-4 text-2xl">Our Mission</h3>
+              <p className="relative z-10 mt-3 text-ink-soft">
                 To extend a helping hand to the marginalized, guided by Christ’s love and empathy.
                 Through practical initiatives and spiritual support, we provide essential resources,
                 education and a sense of belonging — empowering families to overcome poverty and
@@ -124,12 +140,20 @@ export default function About() {
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {coreValues.map((value, i) => (
             <Reveal key={value.title} delay={(i % 4) * 0.06}>
-              <div className="card h-full p-6">
-                <div className="flex h-12 w-12 items-center justify-center rounded-md bg-brand-50 text-brand-600">
-                  <Icon name={value.icon} className="h-6 w-6" />
-                </div>
-                <h3 className="mt-4 text-lg font-bold">{value.title}</h3>
-                <p className="mt-2 text-sm text-ink-soft">{value.description}</p>
+              <div className="card relative h-full overflow-hidden p-6">
+                {/* Oversized, tilted icon bleeding off the right edge as a soft brand watermark */}
+                <span
+                  aria-hidden="true"
+                  className="pointer-events-none absolute right-[20px] top-[calc(50%-20px)] -translate-y-1/2 -rotate-[14deg] text-brand-600 opacity-[0.12]"
+                >
+                  <Icon name={value.icon} className="h-16 w-16 sm:h-24 sm:w-24" />
+                </span>
+
+                {/* Invisible spacer keeps the exact height/position the old icon tile occupied */}
+                <div aria-hidden="true" className="h-12 w-12" />
+
+                <h3 className="relative z-10 mt-4 text-lg font-bold">{value.title}</h3>
+                <p className="relative z-10 mt-2 text-sm text-ink-soft">{value.description}</p>
               </div>
             </Reveal>
           ))}

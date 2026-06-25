@@ -31,7 +31,7 @@ export default function CTASection() {
             <Heart className="h-4 w-4" /> Donate now
           </Link>
           <Link
-            to="/get-involved"
+            to="/partner"
             className="btn btn-lg border border-white/70 bg-transparent text-white hover:bg-white hover:text-brand-700"
           >
             <HandHeart className="h-4 w-4" /> Partner with us

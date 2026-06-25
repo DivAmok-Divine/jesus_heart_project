@@ -128,12 +128,20 @@ export default function Founder() {
         <SectionHeading eyebrow="Background" title="Journey & credentials" />
         <div className="grid gap-6 lg:grid-cols-2">
           <Reveal>
-            <div className="card h-full p-6">
-              <div className="flex h-11 w-11 items-center justify-center rounded-md bg-brand-50 text-brand-600">
-                <GraduationCap className="h-5 w-5" />
-              </div>
-              <h3 className="mt-4 text-lg font-bold">Education & learning</h3>
-              <ul className="mt-3 space-y-2 text-sm text-ink-soft">
+            <div className="card relative h-full overflow-hidden p-6">
+              {/* Oversized, tilted icon bleeding off the right edge as a soft brand watermark */}
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute right-[20px] top-[calc(50%-20px)] -translate-y-1/2 -rotate-[14deg] text-brand-600 opacity-[0.12]"
+              >
+                <GraduationCap className="h-16 w-16 sm:h-24 sm:w-24" />
+              </span>
+
+              {/* Invisible spacer keeps the exact height/position the old icon tile occupied */}
+              <div aria-hidden="true" className="h-11 w-11" />
+
+              <h3 className="relative z-10 mt-4 text-lg font-bold">Education & learning</h3>
+              <ul className="relative z-10 mt-3 space-y-2 text-sm text-ink-soft">
                 {f.education.map((e) => (
                   <li key={e} className="flex gap-2">
                     <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-md bg-brand-600" />
@@ -145,15 +153,23 @@ export default function Founder() {
           </Reveal>
 
           <Reveal delay={0.08}>
-            <div className="card h-full p-6">
-              <div className="flex h-11 w-11 items-center justify-center rounded-md bg-brand-50 text-brand-600">
-                <Tv className="h-5 w-5" />
-              </div>
-              <h3 className="mt-4 text-lg font-bold">Media collaborations</h3>
-              <p className="mt-1 text-sm text-ink-muted">
+            <div className="card relative h-full overflow-hidden p-6">
+              {/* Oversized, tilted icon bleeding off the right edge as a soft brand watermark */}
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute right-[20px] top-[calc(50%-20px)] -translate-y-1/2 -rotate-[14deg] text-brand-600 opacity-[0.12]"
+              >
+                <Tv className="h-16 w-16 sm:h-24 sm:w-24" />
+              </span>
+
+              {/* Invisible spacer keeps the exact height/position the old icon tile occupied */}
+              <div aria-hidden="true" className="h-11 w-11" />
+
+              <h3 className="relative z-10 mt-4 text-lg font-bold">Media collaborations</h3>
+              <p className="relative z-10 mt-1 text-sm text-ink-muted">
                 As executive director of Atsu Prince A. Multimedia.
               </p>
-              <div className="mt-3 flex flex-wrap gap-2">
+              <div className="relative z-10 mt-3 flex flex-wrap gap-2">
                 {f.mediaHouses.map((m) => (
                   <span
                     key={m}
@@ -167,12 +183,20 @@ export default function Founder() {
           </Reveal>
 
           <Reveal delay={0.12}>
-            <div className="card h-full p-6">
-              <div className="flex h-11 w-11 items-center justify-center rounded-md bg-brand-50 text-brand-600">
-                <Award className="h-5 w-5" />
-              </div>
-              <h3 className="mt-4 text-lg font-bold">Awards & recognition</h3>
-              <ul className="mt-3 space-y-3">
+            <div className="card relative h-full overflow-hidden p-6">
+              {/* Oversized, tilted icon bleeding off the right edge as a soft brand watermark */}
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute right-[20px] top-[calc(50%-20px)] -translate-y-1/2 -rotate-[14deg] text-brand-600 opacity-[0.12]"
+              >
+                <Award className="h-16 w-16 sm:h-24 sm:w-24" />
+              </span>
+
+              {/* Invisible spacer keeps the exact height/position the old icon tile occupied */}
+              <div aria-hidden="true" className="h-11 w-11" />
+
+              <h3 className="relative z-10 mt-4 text-lg font-bold">Awards & recognition</h3>
+              <ul className="relative z-10 mt-3 space-y-3">
                 {f.awards.map((a) => (
                   <li key={a.title}>
                     <div className="text-sm font-semibold text-ink">{a.title}</div>
@@ -186,19 +210,27 @@ export default function Founder() {
           </Reveal>
 
           <Reveal delay={0.16}>
-            <div className="card h-full p-6">
-              <div className="flex h-11 w-11 items-center justify-center rounded-md bg-brand-50 text-brand-600">
-                <Church className="h-5 w-5" />
-              </div>
-              <h3 className="mt-4 text-lg font-bold">Faith & community</h3>
-              <p className="mt-3 text-sm text-ink-soft">
+            <div className="card relative h-full overflow-hidden p-6">
+              {/* Oversized, tilted icon bleeding off the right edge as a soft brand watermark */}
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute right-[20px] top-[calc(50%-20px)] -translate-y-1/2 -rotate-[14deg] text-brand-600 opacity-[0.12]"
+              >
+                <Church className="h-16 w-16 sm:h-24 sm:w-24" />
+              </span>
+
+              {/* Invisible spacer keeps the exact height/position the old icon tile occupied */}
+              <div aria-hidden="true" className="h-11 w-11" />
+
+              <h3 className="relative z-10 mt-4 text-lg font-bold">Faith & community</h3>
+              <p className="relative z-10 mt-3 text-sm text-ink-soft">
                 Prince’s philanthropy flows from his Christian faith. He worships and serves at the{' '}
                 <strong className="text-ink">{f.church}</strong>, embodying a spirit of service and
                 compassion.
               </p>
               <Link
                 to="/about"
-                className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-brand-600"
+                className="relative z-10 mt-4 inline-flex items-center gap-1 text-sm font-semibold text-brand-600"
               >
                 <BookOpen className="h-4 w-4" /> About the project
               </Link>
