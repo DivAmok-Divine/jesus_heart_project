@@ -1,18 +1,18 @@
 #!/usr/bin/env bash
 # ─────────────────────────────────────────────────────────────
-# Stop the Jesus Heart Project website dev server.
+# Stop the Jesus Heart Project frontend dev server.
 # Works from anywhere — it locates the project on its own.
 # ─────────────────────────────────────────────────────────────
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-if [ -f "$SCRIPT_DIR/website/package.json" ]; then
-  APP_DIR="$SCRIPT_DIR/website"
+if [ -f "$SCRIPT_DIR/jesus-heart-project-frontend/package.json" ]; then
+  APP_DIR="$SCRIPT_DIR/jesus-heart-project-frontend"
 elif [ -f "$SCRIPT_DIR/package.json" ]; then
   APP_DIR="$SCRIPT_DIR"
 else
-  echo "❌ Could not find the website/ folder next to this script."
+  echo "❌ Could not find the app folder next to this script."
   exit 1
 fi
 

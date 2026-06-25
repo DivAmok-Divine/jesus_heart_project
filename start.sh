@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ─────────────────────────────────────────────────────────────
-# Start the Jesus Heart Project website dev server (in background).
+# Start the Jesus Heart Project frontend dev server (in background).
 # Works from anywhere — it locates the project on its own.
 # Stop it again with ./stop.sh
 # ─────────────────────────────────────────────────────────────
@@ -10,12 +10,12 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # Find the app folder (where package.json with the dev script lives).
-if [ -f "$SCRIPT_DIR/website/package.json" ]; then
-  APP_DIR="$SCRIPT_DIR/website"
+if [ -f "$SCRIPT_DIR/jesus-heart-project-frontend/package.json" ]; then
+  APP_DIR="$SCRIPT_DIR/jesus-heart-project-frontend"
 elif [ -f "$SCRIPT_DIR/package.json" ]; then
   APP_DIR="$SCRIPT_DIR"
 else
-  echo "❌ Could not find the website/ folder next to this script."
+  echo "❌ Could not find the app folder next to this script."
   exit 1
 fi
 
@@ -41,7 +41,7 @@ if [ ! -d node_modules ]; then
   npm install
 fi
 
-echo "🚀 Starting The Jesus Heart Project website on port ${PORT}…"
+echo "🚀 Starting The Jesus Heart Project on port ${PORT}…"
 # Run Vite in the background; keep it alive after this shell exits.
 nohup npm run dev -- --port "$PORT" --strictPort >"$LOG_FILE" 2>&1 &
 echo $! > "$PID_FILE"

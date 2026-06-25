@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    scroll-behavior: smooth;
+  }
+
+  /* Hide scrollbars site-wide (scrolling still works) */
+  html {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE / old Edge */
+  }
+
+  *::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Edge */
+  }
+
+  body {
+    @apply bg-cream font-sans text-ink antialiased;
+    font-feature-settings: 'cv11', 'ss01';
+  }
+
+  /* Editorial serif headings (Fraunces) */
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display font-semibold tracking-tight text-ink;
+  }
+
+  ::selection {
+    @apply bg-brand-600 text-white;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full px-5 sm:px-8 lg:px-12 xl:px-20;
+  }
+
+  .btn {
+    @apply inline-flex min-h-[44px] cursor-pointer items-center justify-center gap-2 rounded-md px-6
+      py-3 text-sm font-semibold tracking-tight transition-all duration-200 focus:outline-none
+      focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2
+      focus-visible:ring-offset-cream active:scale-[0.97] disabled:cursor-not-allowed
+      disabled:opacity-60 disabled:active:scale-100;
+  }
+
+  /* Subtle press feedback for other clickable elements (cards, pills, tiles) */
+  .press {
+    @apply transition-transform duration-150 active:scale-[0.98];
+  }
+
+  .btn-primary {
+    @apply btn bg-brand-600 text-white hover:bg-brand-700;
+  }
+
+  .btn-secondary {
+    @apply btn border border-brand-600/70 bg-transparent text-brand-700 hover:bg-brand-600 hover:text-white;
+  }
+
+  .btn-ghost {
+    @apply btn bg-white text-ink ring-1 ring-ink/10 hover:bg-cream;
+  }
+
+  .btn-gold {
+    @apply btn bg-gold-500 text-ink hover:bg-gold-600 hover:text-white;
+  }
+
+  .btn-lg {
+    @apply px-7 py-3.5 text-base;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-brand-600;
+  }
+
+  /* Eyebrow with a leading rule — editorial accent */
+  .eyebrow-rule::before {
+    content: '';
+    @apply inline-block h-px w-7 bg-gold-500 align-middle;
+  }
+
+  .card {
+    @apply rounded-md bg-white shadow-card ring-1 ring-ink/[0.07];
+  }
+
+  /* Editorial lead paragraph */
+  .lead {
+    @apply text-lg leading-relaxed text-ink-soft sm:text-xl;
+  }
+
+  /* Magazine drop-cap on the first letter */
+  .dropcap::first-letter {
+    @apply float-left mr-3 mt-2 font-display text-6xl font-semibold leading-[0.7] text-brand-700;
+  }
+}
