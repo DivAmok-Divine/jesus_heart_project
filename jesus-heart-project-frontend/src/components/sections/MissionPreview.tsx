@@ -78,7 +78,9 @@ export default function MissionPreview() {
 
         <Reveal delay={0.1}>
           <span className="eyebrow eyebrow-rule">Who we are</span>
-          <h2 className="mt-4 text-3xl leading-tight sm:text-4xl lg:text-[2.75rem]">
+          {/* pr on lg reserves clearance for the top-right StampBadge so the heading
+              never wraps underneath it as the text column narrows. */}
+          <h2 className="mt-4 max-w-xl text-3xl leading-tight sm:text-4xl lg:pr-40 lg:text-[2.75rem]">
             Faith in action, <span className="italic text-brand-700">compassion</span> in practice
           </h2>
           <p className="mt-5 leading-relaxed text-ink-soft">
