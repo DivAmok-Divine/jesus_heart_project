@@ -39,7 +39,7 @@ HANDOFF.md  README.md  LICENSE
 ```
 Inside the app folder: `npm run dev`, `npm run build`, `npm run preview`.
 Build = `tsc --noEmit && vite build` — **run `npm run build` after changes** to catch TS errors.
-User is on **macOS**, **VS Code extension** (no `claude` CLI on PATH).
+User is on **macOS**, working in **VS Code**.
 
 ---
 
@@ -115,11 +115,11 @@ Routes: `/` `/about` `/projects` `/projects/:slug` `/partner` `/team` `/founder`
 
 ---
 
-## 7. Skills & MCP (after a Claude Code restart)
+## 7. Design tooling
 
-- `~/.claude/skills/`: `ui-ux-pro-max` (+ design, design-system, brand, slides, ui-styling,
+- Design skills: `ui-ux-pro-max` (+ design, design-system, brand, slides, ui-styling,
   banner-design). Use ui-ux-pro-max for design decisions.
-- **Magic MCP** (21st.dev) in `~/.claude.json`. The user prefers **hand-crafted** components — ask before using Magic.
+- **Magic MCP** (21st.dev) is available. The user prefers **hand-crafted** components — ask before using Magic.
 
 ---
 
